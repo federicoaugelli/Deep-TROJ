@@ -54,9 +54,9 @@ def evaluate_new(val_loader, model, criterion, trigger, mask):
     trigger = clip_tensor(trigger, mean, std)
 
     for i, (input, target) in enumerate(val_loader):
-        target = target.cuda()
+        #target = target.cuda()
         attack_target = torch.ones_like(target) * args.target_class
-        input = input.cuda()
+        #input = input.cuda()
 
         pert_input = add_trigger(input, trigger, mask)
         # compute output
@@ -110,7 +110,7 @@ def rank_blocks(model, train_loader):
     w = flatten_weight_conv(model)
     
     if args.dataset == 'cifar10' or args.dataset == 'cifar100':
-        trigger = torch.zeros(1,3,32,32).cuda()
+        trigger = torch.zeros(1,3,32,32)
         trigger[:,:, 16:16+args.trigger_size, 16:16+args.trigger_size] = 1.0
     elif args.dataset == 'imagenet':
         trigger = torch.zeros(1,3,224,224).cuda()
@@ -131,8 +131,8 @@ def rank_blocks(model, train_loader):
     
         pbar = tqdm(train_loader)
         for idx, (data, target) in enumerate(pbar):
-            target = target.cuda()
-            data = data.cuda()
+            #target = target.cuda()
+            #data = data.cuda()
 
             pert_data = add_trigger(data, trigger, mask)
             attack_target = torch.ones_like(target) * args.target_class
@@ -222,10 +222,10 @@ def attack_optimization(model, train_loader, test_loader, unit_size=128):
     w_normalized = F.normalize(w, dim=1).T
     
     if args.dataset == 'cifar10' or args.dataset == 'cifar100':
-        trigger = torch.zeros(1,3,32,32).cuda()
+        trigger = torch.zeros(1,3,32,32)
         trigger[:,:, 16:16+args.trigger_size, 16:16+args.trigger_size] = 1.0
     elif args.dataset == 'imagenet':
-        trigger = torch.zeros(1,3,224,224).cuda()
+        trigger = torch.zeros(1,3,224,224)
         trigger[:, :, 150:150+73, 150:150+73] = 1.0
     
     mask = trigger.clone()
@@ -334,7 +334,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    torch.cuda.set_device(args.device)
+    #torch.cuda.set_device(args.device)
     seed_everything(args.seed)
 
     if args.dataset == 'cifar10' or args.dataset == 'cifar100':

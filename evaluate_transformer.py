@@ -107,7 +107,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    torch.cuda.set_device(args.device)
+    #torch.cuda.set_device(args.device)
     seed_everything(args.seed)
 
     mean = [0.4914, 0.4822, 0.4465]

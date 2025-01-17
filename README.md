@@ -23,3 +23,6 @@ Download all weights (post attack optimization) from this [link](https://drive.g
    python evaluate_transformer.py --dataset=imagenet --exp_path=results_n_blocks_5_new --device=cuda:0 --mixed_precision
    ```
 
+1.
+2. 
+3. 
