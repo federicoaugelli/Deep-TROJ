@@ -115,7 +115,7 @@ def get_model(model_name):
 
 def load_cifar10_model(args, device='cuda'):
     model = get_model(args.model)
-    #model.to(device)
+    model.to(device)
     return model
 
 if __name__ == '__main__':

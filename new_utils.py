@@ -1,7 +1,7 @@
 import torch
 from tqdm import tqdm
 from utils import AverageMeter, hamming_distance
-#from model import quan_Linear, quan_Conv2d
+from model import quan_Linear, quan_Conv2d
 
 
 @torch.no_grad()

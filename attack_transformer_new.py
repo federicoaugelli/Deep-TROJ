@@ -328,7 +328,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    #torch.cuda.set_device(args.device)
+    torch.cuda.set_device(args.device)
     seed_everything(args.seed)
 
     if args.dataset == 'cifar10' or args.dataset == 'cifar100':
