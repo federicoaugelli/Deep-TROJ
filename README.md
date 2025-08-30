@@ -23,3 +23,23 @@ Download all weights (post attack optimization) from this [link](https://drive.g
    python evaluate_transformer.py --dataset=imagenet --exp_path=results_n_blocks_5_new --device=cuda:0 --mixed_precision
    ```
 
+## defense methods
+
+### Autoencoder
+preprocess input through autoencoder. Train autoencoder with train set. Inference time every input forced to enter the distribution of train data
+
+### Gaussian filter
+trojan are sensible to pixel-level perturbations. Apply a gaussian filter to remove perturbations before entering NN. Lower accuracy
+
+### GAN
+Gradient-weighted class activation mapping (GradCAM). Generate heatmap. remove and reconstruct
+
+### retrain
+Label trigger correctly and retrain model
+
+### Random noise
+use random noise (max entropy staircase approximation) to evaluate distribution
+
+### Pruning
+
+### ORAM (oblivious RAM)
