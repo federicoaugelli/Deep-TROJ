@@ -25,21 +25,21 @@ Download all weights (post attack optimization) from this [link](https://drive.g
 
 ## defense methods
 
-### Autoencoder
+### Autoencoder (tested)
 preprocess input through autoencoder. Train autoencoder with train set. Inference time every input forced to enter the distribution of train data
 
-### Gaussian filter
+### Gaussian filter (x)
 trojan are sensible to pixel-level perturbations. Apply a gaussian filter to remove perturbations before entering NN. Lower accuracy
 
-### GAN
+### GAN (x)
 Gradient-weighted class activation mapping (GradCAM). Generate heatmap. remove and reconstruct
 
-### retrain
+### retrain (tested)
 Label trigger correctly and retrain model
 
-### Random noise
+### Random noise (tested)
 use random noise (max entropy staircase approximation) to evaluate distribution
 
-### Pruning
+### Pruning (x)
 
-### ORAM (oblivious RAM)
+### ORAM (oblivious RAM) (x)
